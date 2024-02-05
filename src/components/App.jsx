@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import axios from 'axios';
 
-const baseURL = 'https://pixabay.com/api/';
 
-class App extends Component {
+
+
+export class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -17,12 +18,23 @@ class App extends Component {
       loadMoreBtn: false,
     };
   }
+  baseURL = 'https://pixabay.com/api/';
+  
   componentDidMount() {
-    axios.get(baseURL, this.state).then();
+    const {baseURL, state} = this;
+    const {searchQuery, page, per_page, key, orientation, image_type} = state;
+    const url = `${baseURL}?q=${searchQuery}&page=${page}&key=${key}&image_type=${image_type}&orientation=${orientation}&per_page=${per_page}`
+
+    axios.get(url).then((response)=>{
+      const data = response.data;
+      console.log(data);
+    }).catch((error) =>{
+      console.log(`Something went wrong:`, error)
+    })
   }
 
   render() {
     return <></>;
   }
 }
-export default App;
+
