@@ -12,7 +12,7 @@ class ImageGalleryItem extends Component {
         <>
           {data.map(item => (
             <li className={css['gallery-item']} key={item.id}>
-              <img className={css.item_img} src={item.webformatURL} alt="" id={item.id} />
+              <img className={css.item_img} src={item.webformatURL} alt={item.tags} id={item.id} />
             </li>
           ))}
         </>

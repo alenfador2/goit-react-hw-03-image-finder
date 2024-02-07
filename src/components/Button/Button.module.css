@@ -1,4 +1,19 @@
 .load_more_btn{
-    height: 40px;
-    width: 40px;
+    display: block;
+    height: 50px;
+    width: 140px;
+    border-radius: 10px;
+    margin-inline: auto;
+    margin-block: 20px;
+    background-color: blue;
+    border: none;
+    outline: none;
+    color: white;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0px 0px 23px 0px rgba(66, 68, 90, 1);
+
+}
+.load_more_btn:hover{
+
+    transform: scale(1.1);
 }
