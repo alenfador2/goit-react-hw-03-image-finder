@@ -6,6 +6,7 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.getIndex = this.getIndex.bind(this);
   }
 
   componentDidMount() {
@@ -27,15 +28,20 @@ class Modal extends Component {
       this.props.onClose();
     }
   }
+  getIndex = event =>{
+    const index = event.currentTarget.dataset.index;
+    return index;
+  }
 
   render() {
     const { hits } = this.props;
-        const largeImageUrl = hits[0].largeImageURL;
+  
+    const largeImageUrl = hits[1].largeImageURL;
 
     return (
       <div className={css.overlay} onClick={this.handleClick}>
         <div className={css.modal}>
-          <img src={largeImageUrl} alt="" className={css.large_image} />
+          <img src={this.props.largeImageUrl} alt="" className={css.large_image} />
         </div>
       </div>
     );
@@ -43,7 +49,7 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  hits:PropTypes.array.isRequired,
+  hits: PropTypes.array.isRequired,
   largeImageUrl: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 };
