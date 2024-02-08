@@ -111,7 +111,7 @@ export class App extends Component {
     return (
       <>
         {this.state.showModal && (
-          <Modal largeImageUrl={selectedImage} onClose={this.onClose} />
+          <Modal largeImageUrl={selectedImage} onClose={this.onClose} hits={data}/>
         )}
         <Loader loading={isLoading} />
         <SearchBar onSubmit={this.handleSubmitInput} />

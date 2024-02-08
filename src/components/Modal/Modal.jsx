@@ -29,8 +29,8 @@ class Modal extends Component {
   }
 
   render() {
-    const { data } = this.props;
-        const largeImageUrl = data.hits[0].largeImageURL;
+    const { hits } = this.props;
+        const largeImageUrl = hits[0].largeImageURL;
 
     return (
       <div className={css.overlay} onClick={this.handleClick}>
@@ -43,6 +43,7 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
+  hits:PropTypes.array.isRequired,
   largeImageUrl: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 };
