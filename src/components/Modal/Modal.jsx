@@ -29,12 +29,16 @@ class Modal extends Component {
   }
 
   render() {
-    const { largeImageUrl } = this.props;
+    const { data, largeImageUrl } = this.props;
+    if (data) {
+        console.log(data);
+        largeImageUrl = data.map(item => item.largeImageURL);
+    }
 
     return (
       <div className={css.overlay} onClick={this.handleClick}>
         <div className={css.modal}>
-          <img src={largeImageUrl} alt="" className={css.large_image}/>
+          <img src={largeImageUrl} alt="" className={css.large_image} />
         </div>
       </div>
     );

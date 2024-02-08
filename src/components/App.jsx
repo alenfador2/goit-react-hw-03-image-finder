@@ -32,7 +32,8 @@ export class App extends Component {
     this.setState({
       isLoading: true,
     });
-    const { searchQuery, page, per_page, key, orientation, image_type } = this.state;
+    const { searchQuery, page, per_page, key, orientation, image_type } =
+      this.state;
     const url = `${this.baseURL}?q=${searchQuery}&page=${page}&key=${key}&image_type=${image_type}&orientation=${orientation}&per_page=${per_page}`;
     try {
       const response = await axios.get(url);
@@ -58,11 +59,14 @@ export class App extends Component {
   };
 
   loadMore = () => {
-    this.setState(prevState => ({
-      per_page: prevState.per_page + 12,
-    }), () => {
-      this.fetchData();
-    });
+    this.setState(
+      prevState => ({
+        per_page: prevState.per_page + 12,
+      }),
+      () => {
+        this.fetchData();
+      }
+    );
   };
 
   handleSubmitInput = value => {
@@ -79,10 +83,10 @@ export class App extends Component {
     );
   };
 
-  handleClickImage = (largeImageURL) => {
+  handleClickImage = event => {
     this.setState({
       showModal: true,
-      selectedImage: largeImageURL,
+      selectedImage: event.currentTarget,
     });
   };
 
@@ -99,19 +103,22 @@ export class App extends Component {
   }
 
   render() {
-    const { data, loadMoreBtn, per_page, dataTotal, isLoading, selectedImage } = this.state;
+    const { data, loadMoreBtn, per_page, dataTotal, isLoading, selectedImage } =
+      this.state;
     if (!loadMoreBtn && per_page >= dataTotal) {
       Notify.info("We're sorry, but you've reached the end of search results.");
     }
     return (
       <>
+        {this.state.showModal && (
+          <Modal largeImageUrl={selectedImage} onClose={this.onClose} />
+        )}
         <Loader loading={isLoading} />
         <SearchBar onSubmit={this.handleSubmitInput} />
         <ImageGallery>
-          <ImageGalleryItem data={data} onClickImage={this.handleClickImage} />
+          <ImageGalleryItem data={data} onClick={this.handleClickImage} />
         </ImageGallery>
         {loadMoreBtn && <Button onClick={this.loadMore} />}
-        {this.state.showModal && <Modal imageUrl={selectedImage} onClose={this.onClose} />}
       </>
     );
   }

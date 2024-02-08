@@ -3,12 +3,17 @@
     height:100%;
     background-color: black;
     opacity:0.8;
+    z-index: 10;
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    padding-top: 100px;
 
 }
 .modal{
-    width: 800px;
-    height: 800px;
-    border-radius: 50px;
+    width: 600px;
+    height: 600px;
+    border-radius: 20px;
 }
 .large_image{
     width:100%;
