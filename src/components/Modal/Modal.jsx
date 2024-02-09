@@ -6,7 +6,7 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -18,20 +18,19 @@ class Modal extends Component {
   }
 
   handleKeyDown(event) {
-    if (event.keyCode === 'Escape') {
+    if (event.keyCode === 27) {
       this.props.onClose();
     }
   }
 
   handleClick(event) {
-    if (event.target === event.currentTarget) {
+    if (event.currentTarget === event.target) {
       this.props.onClose();
     }
   }
-  
 
   render() {
-    const {largeImageUrl} = this.props
+    const { largeImageUrl } = this.props;
     return (
       <div className={css.overlay} onClick={this.handleClick}>
         <div className={css.modal}>

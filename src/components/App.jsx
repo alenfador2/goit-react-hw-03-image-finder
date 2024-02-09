@@ -47,9 +47,7 @@ export class App extends Component {
       if (per_page === 12) {
         Notify.success(`Hurray, we get ${data.totalHits} results!`);
       }
-      console.log(data);
     } catch (error) {
-      console.log(`Something went wrong:`, error);
       Notify.failure('Failed to fetch data. Please try again later.');
     } finally {
       this.setState({
@@ -99,7 +97,6 @@ export class App extends Component {
 
   async componentDidMount() {
     await this.fetchData();
-    console.log('component did mount');
   }
 
   render() {
