@@ -28,14 +28,14 @@ class Modal extends Component {
       this.props.onClose();
     }
   }
-  getIndex = event =>{
+  getIndex = event => {
     const index = event.currentTarget.dataset.index;
     return index;
-  }
+  };
 
   render() {
     const { hits } = this.props;
-  
+
     const largeImageUrl = hits[1].largeImageURL;
 
     return (

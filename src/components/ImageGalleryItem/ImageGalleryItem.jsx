@@ -11,14 +11,21 @@ class ImageGalleryItem extends Component {
     } else {
       return (
         <>
-          {
-          data.map(item => (
-            <li className={css['gallery-item']} key={item.id} onClick={() => onClick(item.largeImageURL)}>
-              <img className={css.item_img} src={item.webformatURL} alt={item.tags} id={item.id} />
+          {data.map(item => (
+            <li
+              className={css['gallery-item']}
+              key={item.id}
+              onClick={() => onClick(item.largeImageURL)}
+            >
+              <img
+                className={css.item_img}
+                src={item.webformatURL}
+                alt={item.tags}
+                id={item.id}
+              />
             </li>
           ))}
         </>
-        
       );
     }
   }
@@ -30,4 +37,3 @@ ImageGalleryItem.propTypes = {
 };
 
 export default ImageGalleryItem;
-

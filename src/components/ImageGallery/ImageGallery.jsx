@@ -14,7 +14,7 @@ class ImageGallery extends Component {
 }
 
 ImageGallery.propTypes = {
-    children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
 export default ImageGallery;

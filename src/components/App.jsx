@@ -84,10 +84,11 @@ export class App extends Component {
   };
 
   handleClickImage = event => {
-    const selectedImageUrl = this.state.data[event=>event.currentTarget.dataset.index].largeImageURL;
+    const selectedImageUrl =
+      this.state.data[event => event.currentTarget.dataset.index].largeImageURL;
     this.setState({
       showModal: true,
-      selectedImage: selectedImageUrl
+      selectedImage: selectedImageUrl,
     });
   };
 
@@ -112,7 +113,11 @@ export class App extends Component {
     return (
       <>
         {this.state.showModal && (
-          <Modal largeImageUrl={selectedImage} onClose={this.onClose} hits={data}/>
+          <Modal
+            largeImageUrl={selectedImage}
+            onClose={this.onClose}
+            hits={data}
+          />
         )}
         <Loader loading={isLoading} />
         <SearchBar onSubmit={this.handleSubmitInput} />

@@ -1,9 +1,9 @@
-.gallery{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-inline: auto;
-    width: 100%;
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-inline: auto;
+  width: 100%;
 }
