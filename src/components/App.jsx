@@ -83,12 +83,10 @@ export class App extends Component {
     );
   };
 
-  handleClickImage = event => {
-    const selectedImageUrl =
-      this.state.data[event => event.currentTarget.dataset.index].largeImageURL;
+  handleClickImage = imageURL => {
     this.setState({
       showModal: true,
-      selectedImage: selectedImageUrl,
+      selectedImage: imageURL,
     });
   };
 
