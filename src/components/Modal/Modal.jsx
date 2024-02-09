@@ -6,7 +6,6 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.getIndex = this.getIndex.bind(this);
 
   }
 
@@ -29,18 +28,14 @@ class Modal extends Component {
       this.props.onClose();
     }
   }
-  getImage = event => {
-    const {hits} = this.props
-    const index = event.currentTarget.dataset.index;
-    const image = hits[index].largeImageURL
-    return image;
-  };
+  
 
   render() {
+    const {largeImageUrl} = this.props
     return (
       <div className={css.overlay} onClick={this.handleClick}>
         <div className={css.modal}>
-          <img src={this.getImage} alt="" className={css.large_image} />
+          <img src={largeImageUrl} alt="" className={css.large_image} />
         </div>
       </div>
     );
